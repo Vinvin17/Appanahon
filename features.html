@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features of APPanahon</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Comic Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            overflow-x: hidden;
+            background-image: url('pictures/weather4.gif'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        header {
+            background: #ff6f61;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header .menu-icon {
+            font-size: 1.5em;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+        header .app-name {
+            flex: 1;
+            font-size: 1.5em;
+        }
+        header .home-button {
+            background-color: #fff;
+            color: #ff6f61;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        header .home-button:hover {
+            background-color: #ddd;
+        }
+        .drawer {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 999;
+        }
+        .drawer a {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            color: #fff;
+            display: block;
+            transition: 0.3s;
+        }
+        .drawer a:hover {
+            background-color: #dbde57;
+        }
+        .content {
+            padding: 100px 20px 20px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .content h2 {
+            color: #ff6f61;
+        }
+        .content p {
+            color: #333;
+            font-size: 1.2em;
+            line-height: 1.5;
+            text-align: justify;
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background: #ff6f61;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="menu-icon" onclick="toggleDrawer()">&#9776;</span>
+        <div class="app-name">APPanahon</div>
+        <a href="menu.html" class="home-button">Home</a>
+    </header>
+    <div class="drawer" id="drawer">
+        <div><h2>
+        </h2></div>
+        <a href="menu.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <div class="content">
+        <h2>Features of APPanahon</h2>
+        <p><strong>Interactive na mga Laro</strong><br>
+            Makisali sa mga kakaibang laro na edukatibo at nakatuon para sa mga mag-aaral ng ikalimang baitang. Hindi lamang ito nakakatuwa kundi nakatutulong din sa pagtuturo ng pangangalaga sa sarili at pagiging handa sa pabago-bagong panahon. Bawat laro ay nilikha upang matuto ang mga bata patungkol sa kanilang kapakanan, at ito ang nagpapadali sa pag-unawa ng mga komplikadong konsepto.</p>
+
+        <p><strong>Nakakaakit na mga Kuwento</strong><br>
+            Tuklasin ang bawat bagong mundo sa bawat icon! Bawat kuwento ay maingat na pinipili upang pasiyahin ang mga bata habang nagbibigay ng mahahalagang aral sa pangangalaga sa sarili at pagiging handa sa pabago-bagong panahon. Ang mga kuwento ay madaling basahin kasama ang mga buhay na mga ilustrasyon upang manatiling interesado ang mga bata.</p>
+
+        <p><strong>Dinamikong mga Animasyon</strong><br>
+            Mararanasan ang pag-aaral ng hindi pa nararanasan gamit ang ating dinamikong mga animasyon. Ang mga animasyon ay nagbibigay-buhay sa mga kuwento at aral, na ginagawang mas madali para sa mga bata na maunawaan at matandaan ang impormasyon. Mayroon itong interaktibong elemento sa app, na nagpapahusay sa karanasan ng pag-aaral.</p>
+
+        <p><strong>Pangangalaga sa sarili at pagiging handa sa Panahon</strong><br>
+            Hindi lamang isang app ang APPanahon; ito ay isang kasangkapan upang matulungan ang mga bata na maging handa at matatag sa pabago-bagong panahon. Nagbibigay ang app ng mahahalagang impormasyon at tips tungkol sa pangangalaga sa sarili at kung paano manatiling ligtas sa iba't ibang kondisyon ng panahon. Binibigyan nito ng kakayahan ang mga bata ng kaalaman at kasanayan na kailangan nila upang maging handa sa anumang sitwasyon.</p>
+
+        <p><strong>Madaling gamitin na Interface</strong><br>
+            Ang APPanahon ay may interface at madaling i-navigate. Ito ay dinisensyo para sa mga baga. Ito ay may makulay at interaktibong disenyo na tinitiyak na magagamit ng mga bata nang mag-isa sa pag-aaral.</p>
+
+        <p><strong>Regular na mga update</strong><br>
+            Nagdadala ng mga bagong kuwento, laro, at animasyon upang panatilihing sariwa at kaaya-aya ang karanasan sa pag-aaral. Nakatuon ito sa patuloy na pagpapabuti ng aplikasyon upang magbigay ng pinakamahusay na pagkatuto para sa mga mag-aaral.</p>
+    </div>
+    <div><h3>.</h3>
+    </div>
+    <div><h3>.</h3>
+    </div>
+    <footer>
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <img src="Pictures/LOGO.png" alt="APPanahon Logo" style="width: 50px; height: auto; margin-right: 10px;">
+            <p style="font-size: 15px; color: #666;">&copy; 2024 APPanahon. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        function toggleDrawer() {
+            var drawer = document.getElementById("drawer");
+            if (drawer.style.left === "0px") {
+                drawer.style.left = "-250px";
+            } else {
+                drawer.style.left = "0px";
+            }
+        }
+    </script>
+</body>
+</html>

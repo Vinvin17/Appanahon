@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - APPanahon</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            overflow-x: hidden;
+            background-image: url('pictures/weather4.gif'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        header {
+            background: #28a745;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header .menu-icon {
+            font-size: 1.5em;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+        header .app-name {
+            flex: 1;
+            font-size: 1.5em;
+            font-family: 'Comic Sans MS', cursive, sans-serif; 
+        }
+        header .home-button {
+            background-color: #fff;
+            color: #28a745;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        header .home-button:hover {
+            background-color: #ddd;
+        }
+        .drawer {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 40px; 
+            left: -250px;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            z-index: 999;
+        }
+        .drawer a {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            color: #fff;
+            display: block;
+            transition: 0.3s;
+        }
+        .drawer a:hover {
+            background-color: #dbde57;
+        }
+        .content {
+            padding: 100px 20px 120px; 
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .content h2 {
+            color: #28a745;
+        }
+        .content p {
+            color: #333;
+            font-size: 1.2em;
+            line-height: 1.5;
+            text-align: justify;
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            margin-top: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px; 
+        }
+        form label {
+            font-size: 1.2em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #28a745; 
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-family: 'Comic Sans MS', cursive, sans-serif; 
+        }
+        form textarea {
+            height: 150px;
+        }
+        form input[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        form input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        footer {
+            background: #28a745;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="menu-icon" onclick="toggleDrawer()">&#9776;</span>
+        <div class="app-name">APPanahon</div>
+        <a href="menu.html" class="home-button">Home</a>
+    </header>
+    <div class="drawer" id="drawer">
+        <div><h2>
+        </h2></div>
+        <a href="menu.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <div class="content">
+        <h2>Makipag-ugnayan sa amin</h2>
+        <p>Mayroon ka bang mga katanungan o mga komento tungkol sa APPanahon? Huwag mag-atubiling makipag-ugnay sa amin gamit ang impormasyon sa ibaba o gamit ang form sa contact:</p>
+
+        <div style="margin-top: 20px;">
+            <p><strong>Address:</strong> Mindanao State University, Barangay Fatima, Lungsod ng Heneral Santos</p>
+            <p><strong>Email:</strong> APPanahon@gmail.com</p>
+            <p><strong>Numero:</strong> +63912345678</p>
+        </div>
+
+        <form>
+            <label for="name">Ang iyong pangalan:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Ang iyong Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+            <input type="submit" value="Ipadala ang mensahe">
+        </form>
+    </div>
+    <footer>
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <img src="Pictures/LOGO.png" alt="APPanahon Logo" style="width: 50px; height: auto; margin-right: 10px;">
+            <p style="font-size: 15px; color: #666;">&copy; 2024 APPanahon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleDrawer() {
+            var drawer = document.getElementById("drawer");
+            if (drawer.style.left === "0px") {
+                drawer.style.left = "-250px";
+            } else {
+                drawer.style.left = "0px";
+            }
+        }
+    </script>
+</body>
+</html>
