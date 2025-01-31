@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPanahon Launch Page</title>
+    <style>
+        @keyframes float {
+            0% {
+                transform: translatey(0px);
+            }
+            50% {
+                transform: translatey(-10px);
+            }
+            100% {
+                transform: translatey(0px);
+            }
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffcc33 0%, #ff6699 100%);
+            font-family: 'Comic Neue', sans-serif;
+            display: flex;
+            justify-content: center;
+            background-image: url('Pictures/weather4.gif');
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffffdd;
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .container img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #ff6699;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .gender-options {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .gender-icon {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .gender-icon:hover {
+            transform: scale(1.1);
+            border-color: #ff6699;
+        }
+
+        .start-button {
+            background-color: #ff6699;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            text-decoration: none; 
+            display: inline-block; 
+
+        .start-button:hover {
+            background-color: #ff3366;
+            transform: scale(1.05);
+        }
+
+        .character {
+            position: absolute;
+            bottom: 10%;
+            width: 100px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .character.left {
+            left: 10%;
+        }
+
+        .character.right {
+            right: 10%;
+            animation-delay: 1.5s;
+        }
+
+        .background-settings {
+            margin-top: 20px;
+        }
+
+        .background-settings input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .background-settings button {
+            background-color: #ff6699;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 10px;
+        }
+
+        .background-settings button:hover {
+            background-color: #ff3366;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kumusta?</h1>
+        <form id="launchForm">
+            <div class="input-group">
+                <label for="name">Pangalan:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-group">
+                <label for="age">Edad:</label>
+                <input type="number" id="age" name="age" min="1" max="18" required>
+            </div>
+            <div class="input-group">
+                <label>Kasarian:</label>
+                <div class="gender-options">
+                    <label for="male">
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        <img src="Pictures/Male.png" alt="Male" class="gender-icon">
+                    </label>
+                    <label for="female">
+                        <input type="radio" id="female" name="gender" value="female" required>
+                        <img src="Pictures/Female.png" alt="Female" class="gender-icon">
+                    </label>
+                </div>
+            </div>
+            <a href="menu.html" class="start-button">Simulan na</a> 
+        </form>
+    </div>
+    <img src="Pictures/Male1.png" alt="Character Left" class="character left">
+    <img src="Pictures/Female2.png" alt="Character Right" class="character right">
+
+    <audio id="song">
+        <source src="backgroundmusic.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script>
+        window.addEventListener('click', () => {
+            document.getElementById("song").play();
+        })
+        document.getElementById('launchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+
+            alert(`Pangalan: ${name}\nEdad: ${age}\nKasarian: ${gender}`);
+        });
+
+        document.getElementById('change-bg').addEventListener('click', function() {
+            const bgUrl = document.getElementById('bg-url').value;
+            document.body.style.backgroundImage = `url(${bgUrl})`;
+            document.body.style.backgroundSize = 'cover';
+        });
+
+        window.addEventListener('load', function() {
+            const backgroundMusic = document.getElementById('background-music');
+            backgroundMusic.play();
+        });
+    </script>
+</body>
+</html>

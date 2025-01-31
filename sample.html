@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPanahon</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+        body {
+            font-family: 'Comic Neue', cursive;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa;
+            overflow-x: hidden;
+            background-image: url('pictures/weather4.gif'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        header {
+            background: #ffeb3b;
+            color: #000;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header .menu-icon {
+            font-size: 1.5em;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+        header .app-name {
+            flex: 1;
+            font-size: 1.5em;
+        }
+        header .home-button {
+            background-color: #fff;
+            color: #ffeb3b;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        header .home-button:hover {
+            background-color: #ffe082;
+        }
+        .drawer {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #ffeb3b;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 999;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        }
+        .drawer a {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            color: #000;
+            display: block;
+            transition: 0.3s;
+        }
+        .drawer a:hover {
+            background-color: #ffe082;
+        }
+        .content {
+            padding: 100px 20px 20px;
+            text-align: center;
+        }
+        .content h2 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .section h3 {
+            width: 100%;
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #ffcc80;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 10px;
+            margin: 10px;
+            position: relative;
+            transition: transform 0.3s ease-in-out, background-color 0.3s;
+            overflow: hidden; /* Ensure images fit properly */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .box:hover {
+            transform: scale(1.1);
+            background-color: #ffb74d;
+        }
+        .box.locked {
+            background-color: #bdbdbd; 
+        }
+        .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+        .box a {
+            color: #000;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            width: 100%;
+            padding: 5px 0;
+            background-color: rgba(255, 235, 59, 0.8);
+            border-radius: 0 0 10px 10px;
+        }
+        .lock-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background-image: url('pictures/lock.png'); 
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
+        footer {
+            background: #ffe082;
+            color: #ff6f00;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .content {
+            animation: fadeIn 2s;
+        }
+    </style>
+</head>
+<body>
+    <audio id="bgMusic" src="background-music.mp3" loop></audio>
+    <header>
+        <span class="menu-icon" onclick="toggleDrawer()">&#9776;</span>
+        <div class="app-name">APPanahon</div>
+        <a href="#" class="home-button">Home</a>
+    </header>
+    <div class="drawer" id="drawer">
+        <a href="menu.html">Home</a>
+        <a href="#">Features</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+    <div class="content">
+        <h2>Welcome to APPanahon</h2>
+        <div class="section">
+            <h3>Stories</h3>
+            <div class="box" id="day1" onclick="unlockDay(1)">
+                <div class="lock-icon" id="lock1"></div>
+                <img src="Pictures/Day1.png" alt="Day 1">
+                <a href="Stories/Day1/Day1.html" id="day1-link">Day 1</a>
+            </div>
+            <div class="box locked" id="day2" onclick="unlockDay(2)">
+                <div class="lock-icon" id="lock2"></div>
+                <img src="Pictures/Day2.png" alt="Day 2">
+                <a href="Stories/Day2/Day2.html" id="day2-link">Day 2</a>
+            </div>
+            <div class="box locked" id="day3" onclick="unlockDay(3)">
+                <div class="lock-icon" id="lock3"></div>
+                <img src="Pictures/Day3.png" alt="Day 3">
+                <a href="Stories/Day3/Day3.html" id="day3-link">Day 3</a>
+            </div>
+            <div class="box locked" id="day4" onclick="unlockDay(4)">
+                <div class="lock-icon" id="lock4"></div>
+                <img src="Pictures/Day4.png" alt="Day 4">
+                <a href="Stories/Day4/Day4.html" id="day4-link">Day 4</a>
+            </div>
+            <div class="box locked" id="day5" onclick="unlockDay(5)">
+                <div class="lock-icon" id="lock5"></div>
+                <img src="Pictures/Day5.png" alt="Day 5">
+                <a href="Stories/Day5/Day5.html" id="day5-link">Day 5</a>
+            </div>
+            <div class="box locked" id="day6" onclick="unlockDay(6)">
+                <div class="lock-icon" id="lock6"></div>
+                <img src="Pictures/Day6.png" alt="Day 6">
+                <a href="Stories/Day6/Day6.html" id="day6-link">Day 6</a>
+            </div>
+            <div class="box locked" id="day7" onclick="unlockDay(7)">
+                <div class="lock-icon" id="lock7"></div>
+                <img src="Pictures/Day7.png" alt="Day 7">
+                <a href="Stories/Day7/Day7.html" id="day7-link">Day 7</a>
+            </div>
+        </div>
+        <div class="section">
+            <h3>Games</h3>
+            <div class="box">
+                <img src="Pictures/Game1.png" alt="Game 1">
+                <a href="game1.html">Game 1</a>
+            </div>
+            <div class="box">
+                <img src="Pictures/Game2.png" alt="Game 2">
+                <a href="game2.html">Game 2</a>
+            </div>
+            <div class="box">
+                <img src="Pictures/Game3.png" alt="Game 3">
+                <a href="game3.html">Game 3</a>
+            </div>
+            <div class="box">
+                <img src="Pictures/Game4.png" alt="Game 4">
+                <a href="game4.html">Game 4</a>
+            </div>
+            <div class="box">
+                <img src="Pictures/Game5.png" alt="Game 5">
+                <a href="game5.html">Game 5</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 APPanahon. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let unlockedDays = 1; // Number of unlocked days
+
+        // Play background music
+        const bgMusic = document.getElementById('bgMusic');
+        bgMusic.play();
+
+        function unlockDay(day) {
+            if (day <= unlockedDays) {
+                return; // Already unlocked or not sequentially unlocked
+            }
+            if (day === unlockedDays + 1) {
+                unlockedDays++;
+                document.getElementById(`day${day}`).classList.remove('locked');
+                document.getElementById(`lock${day}`).style.display = 'none';
+                document.getElementById(`day${day}-link`).setAttribute('href', `Stories/Day${day}/Day${day}.html`);
+            }
+        }
+
+        function toggleDrawer() {
+            var drawer = document.getElementById("drawer");
+            if (drawer.style.left === "0px") {
+                drawer.style.left = "-250px";
+            } else {
+                drawer.style.left = "0px";
+            }
+        }
+    </script>
+</body>
+</html>
